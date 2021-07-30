@@ -1,5 +1,6 @@
 require('./bootstrap');
 import '../css/app.css'
+import '../css/style.css'
 import {createApp} from 'vue/dist/vue.esm-bundler.js'
 import file from '../js/components/File'
 const app = createApp({
@@ -7,7 +8,7 @@ const app = createApp({
         test: 'test'
     }),
     components: {
-        file: file,
+        file,
     }
 })
 app.mount('#app')

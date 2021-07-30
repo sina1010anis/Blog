@@ -14,7 +14,7 @@ class AddNewItemToComments extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreignId('new_item')->after('id')->constrained()->cascadeOnDelete();
+            $table->foreignId('new_blog_id')->constrained()->cascadeOnDelete();
         });
     }
 

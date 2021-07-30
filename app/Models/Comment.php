@@ -15,6 +15,10 @@ class Comment extends Model
         return $this->belongsTo(NewBlog::class , 'new_item' , 'id');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class , 'user_id' , 'id');
+    }
+
     public function reply_comment(){
         return $this->hasMany(ReplyComment::class , 'comment_id' , 'id');
     }

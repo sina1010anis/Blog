@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Comment;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class CommentFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model =Comment::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'new_item' => 1,
+            'user_id' => 1,
+            'title' => $this->faker->title,
+            'body' => $this->faker->paragraph(rand(3,5)),
+            'like' => 10,
+            'unlike' => 2,
+        ];
+    }
+}
