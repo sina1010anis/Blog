@@ -1,22 +1,18 @@
 <template>
-    <div class="header_style_1 w-100">
-        <span class="set-font fl-left view-data color-b-700 f-13 view-header-style-1">زمان ورود : {{ data }}</span>
-        <span class="set-font fl-right view-domain color-b-700 f-13 view-header-style-1">{{ names.domain }}</span>
-    </div>
     <div class="slider-st-model">
         <img src="/img/1.jpg" alt="">
     </div>
     <div class="show-item-one-style-1">
-        <h2 dir="rtl" align="right" class="set-font">Test</h2>
-        <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0"> 1400-05-09/ نویسنده : sina 1010</p>
+        <h2 dir="rtl" align="right" class="set-font">{{data.title}}</h2>
+        <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0">{{data.created_at}}</p>
         <div class="line"></div>
         <p dir="rtl" align="right" class="set-font f-14 color-b-900">
-            Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga iure
-            libero numquam pariatur quaerat? Corporis earum eos impedit inventore laboriosam minus, natus nobis nostrum
-            numquam officia quam quibusdam reprehenderit sequi. adipisicing elit. Ab animi architecto at consequuntur
-            culpa dolores ducimus est eum exercitationem facilis fugiat harum illo, libero, nemo optio reiciendis
-            sapiente voluptatem voluptatibus?
+            {{data.body}}
         </p>
+        <div class="line"></div>
+        <div class="group-key-words" style="overflow: auto">
+            <span class="fl-right set-font f-11">{{data.key_word}}</span>
+        </div>
     </div>
     <div class="show-item-one-style-1">
         <div class="comment-section">
@@ -182,8 +178,7 @@
 export default {
     name: "show_style_1",
     props: [
-        'names',
-        'data',
+        'data'
     ]
 }
 </script>

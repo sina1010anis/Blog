@@ -46,7 +46,8 @@
 .header_style_1{
     padding: 10px 0;
     position: relative;
-    height: 21px;
+    overflow: hidden;
+    height: 42px;
     background-color: #e7e7e7;
 }
 .view-data{
@@ -809,6 +810,13 @@ ul {
     display: block;
     margin-top: 40px;
     border-top: 1px solid #cdd7dc;
+}
+.group-key-words span{
+    padding: 5px;
+    margin: 10px 10px;
+    background-color: #2ab062;
+    color: white;
+    border-radius: 100px;
 }
 @media all and (max-width: 500px) {
     .view-header-style-1{

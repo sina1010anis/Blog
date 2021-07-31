@@ -18,4 +18,9 @@ class NewBlog extends Model
     public function new_item(){
         return $this->hasMany(NewBlog::class , 'new_item' , 'id');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'title';
+    }
 }

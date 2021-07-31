@@ -16,7 +16,8 @@ use \App\Http\Controllers\Blog\BlogController;
 
 Route::get('/', [IndexController::class , 'index'])->name('index_page');
 Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+).([a-z A-Z]+)'])->group(function (){
-    Route::get('/index' , [BlogController::class,'index'])->name('.test');
+    Route::get('/' , [BlogController::class,'index'])->name('.test');
+    Route::get('/{nameItem}' , [BlogController::class,'show'])->name('.show');
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

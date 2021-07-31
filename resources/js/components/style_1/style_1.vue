@@ -1,7 +1,7 @@
 <template>
     <div class="header_style_1 w-100">
-        <span class="set-font fl-left view-data color-b-700 f-13 view-header-style-1">زمان ورود : {{data}}</span>
-        <span class="set-font fl-right view-domain color-b-700 f-13 view-header-style-1">{{names.domain}}</span>
+        <span class="set-font fl-left view-data color-b-700 f-13 view-header-style-1">زمان ورود : {{date}}</span>
+        <span class="set-font fl-right view-domain color-b-700 f-13 view-header-style-1">{{name_domain.domain}}</span>
     </div>
     <div class="slider-st-model">
         <img src="/img/1.jpg" alt="">
@@ -17,12 +17,12 @@
     </div>
     <div class="view-item-and-slid">
         <span class="view-item-style-1">
-            <span class="fl-right item-style-1">
-                <h1 dir="rtl" align="right" class="set-font"><a href="#" class="color-b-900">Test TiTle</a></h1>
-                <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0"> 1400-05-09</p>
+            <span  v-for='i in data' class="fl-right item-style-1">
+                <h1 dir="rtl" align="right" class="set-font"><a :href="/Iran-Blog/+name_domain.domain+'/'+i.title" class="color-b-900">{{i.title}}</a></h1>
+                <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0"> <slot name="date_item" :date_time_item="i.created_at" /></p>
                 <span class="line fl-right"></span>
                 <span dir="rtl" align="right" class="set-font f-14 color-b-900">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi architecto at consequuntur culpa dolores ducimus est eum exercitationem facilis fugiat harum illo, libero, nemo optio reiciendis sapiente voluptatem voluptatibus?
+                    <slot name="dec_min" :text_item="i.body"></slot>
                 </span>
             </span>
         </span>
@@ -46,8 +46,10 @@
 export default {
     name: "style_1",
     props:[
-        'names',
+        'name_domain',
+        'date',
         'data',
+        'domain',
     ]
 }
 </script>
