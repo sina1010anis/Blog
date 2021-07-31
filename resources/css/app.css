@@ -45,12 +45,114 @@
 }
 .header_style_1{
     padding: 10px 0;
+    position: relative;
     height: 21px;
     background-color: #e7e7e7;
 }
 .view-data{
-    margin-left: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    position: absolute;
+}
+.view-data:hover , .view-domain:hover{
+    background-color: #2ab062;
+    color: white;
 }
 .view-domain{
-    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    position: absolute;
+}
+.slider-st-model img{
+    width: 100%;
+    height: auto;
+}
+.menu-view-style-1{
+    overflow: hidden;
+    background-color: #e7e7e7;
+    height: 37px;
+}
+.menu-view-style-1 ul{
+    margin: 0;
+    padding: 0;
+}
+.menu-view-style-1 li {
+    float: right;
+    list-style: none;
+    padding: 10px 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.menu-view-style-1 li a{
+    color: #404040!important;
+}
+.item-menu-style-1:hover{
+    background-color:#2ab062 ;
+    color: #ffffff;
+}
+.view-item-and-slid{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.view-item-style-1{
+    width: 67%;
+    height: auto;
+    box-shadow: 1px 1px 10px rgba(95, 95, 95, 0.5);
+    background-color: #ffffff;
+    border-radius: 10px;
+    float: left;
+}
+.view-slid-style-1{
+    width: 32%;
+    height: auto;
+    box-shadow: 1px 1px 10px rgba(95, 95, 95, 0.5);
+    background-color: #ffffff;
+    border-radius: 10px;
+    float: right;
+}
+.item-style-1{
+    width: 98%;
+    padding: 10px;
+    transition: 0.2s;
+    border: 1px solid #2ab062;
+    border-radius: 10px;
+    margin: 10px 10px;
+    box-sizing: border-box;
+}
+.item-style-1:hover{
+    background-color: #f8f8f8;
+}
+.slid-style-1{
+    width: 95%;
+    padding: 10px;
+    transition: 0.2s;
+    border: 1px solid #2ab062;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    margin: 10px 10px;
+    box-sizing: border-box;
+}
+@media all and (max-width: 500px) {
+    .view-header-style-1{
+        font-size: 11px!important;
+    }
+}
+@media all and (max-width: 700px) {
+    .view-item-style-1{
+        width: 100%;
+    }
+    .view-slid-style-1{
+        margin-top: 10px;
+        width: 100%;
+    }
 }
