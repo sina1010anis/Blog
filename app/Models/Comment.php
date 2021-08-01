@@ -10,13 +10,9 @@ class Comment extends Model
     use HasFactory;
 
     protected $guarded =[];
-
+    protected $attributes = ['like' => 0,'unlike' => 0,'status' => 0];
     public function new_item(){
         return $this->belongsTo(NewBlog::class , 'new_item' , 'id');
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class , 'user_id' , 'id');
     }
 
     public function reply_comment(){

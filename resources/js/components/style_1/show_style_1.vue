@@ -17,35 +17,7 @@
     <div class="show-item-one-style-1">
         <div class="comment-section">
             <h1 align="right" class="comment-reply-title set-font color-b-700">کامت جدید</h1>
-            <form id="commentform" class="comment-form">
-                <div class="comment-form-name">
-                    <input id="name" placeholder="Name *" name="name" type="text" value="" pattern="^[^0-9]+$" size="30"
-                           maxlength="245" required>
-                    <label for="name" data-help="¿Are you 11 from Stranger Things?">Name</label>
-                </div>
-                <div class="comment-form-surname">
-                    <input id="surname" placeholder="Surname *" name="surname" type="text" value="" size="30"
-                           maxlength="245" required>
-                    <label for="surname" data-help="A girl has no name- Arya Stark">Surname</label>
-                </div>
-                <div class="comment-form-email">
-                    <input id="email" placeholder="Email *" name="email" type="email" value="" size="30" maxlength="100"
-                           aria-describedby="email-notes" required>
-                    <label for="email" data-help="Format email@email.com">Email</label>
-                </div>
-                <div class="comment-form-url">
-                    <input id="url" placeholder="Website" name="url" type="url" value="" size="30" maxlength="200">
-                    <label for="url" data-help="Should start with http:// o https://">Website</label>
-                </div>
-                <div class="comment-form-comment">
-                    <textarea textarea="" placeholder="Comment *" id="comment" name="comment" cols="45" rows="8"
-                              maxlength="65525" required></textarea>
-                    <label for="comment" data-help="Escribe algo! Lo primero que se te ocurra">Comment</label>
-                </div>
-                <div class="form-submit">
-                    <input name="submit" type="submit" id="submit" class="submit set-font" value="ثبت">
-                </div>
-            </form>
+            <slot name="form_new_comment"/>
         </div>
     </div>
     <div class="show-item-one-style-1">
