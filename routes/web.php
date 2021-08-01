@@ -20,6 +20,7 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
     Route::get('/' , [BlogController::class,'index'])->name('.test');
     Route::get('/{nameItem}' , [BlogController::class,'show'])->name('.show');
     Route::post('/new/comment/{id}' , [CommentController::class,'new_comment'])->name('.new_comment');
+    Route::post('/reply/comment/{id}' , [CommentController::class,'reply_comment'])->name('.reply_comment');
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

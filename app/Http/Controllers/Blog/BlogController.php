@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\NewBlog;
+use App\Models\ReplyComment;
 use Database\Factories\CommentFactory;
 use Illuminate\Http\Request;
 use App\Models\Blog;
@@ -20,6 +21,7 @@ class BlogController extends Controller
     {
         $name_domain = Blog::whereDomain($dom)->first();
         $comments = Comment::where('new_item' , $nameItem->id)->latest('id')->get();
-        return view('front.section.show.show_'.$name_domain->style.'_style' , compact( 'name_domain' ,'comments', 'nameItem'));
+        $replyComments = ReplyComment::all();
+        return view('front.section.show.show_'.$name_domain->style.'_style' , compact( 'name_domain' ,'comments', 'nameItem','replyComments'));
     }
 }

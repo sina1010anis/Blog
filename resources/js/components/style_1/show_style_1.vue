@@ -2,16 +2,17 @@
     <div class="slider-st-model">
         <img src="/img/1.jpg" alt="">
     </div>
+    {{ data.domain }}
     <div class="show-item-one-style-1">
-        <h2 dir="rtl" align="right" class="set-font">{{data.title}}</h2>
-        <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0">{{data.created_at}}</p>
+        <h2 dir="rtl" align="right" class="set-font">{{ data.title }}</h2>
+        <p dir="rtl" align="right" class="set-font f-12 color-b-700 m-p-0">{{ data.created_at }}</p>
         <div class="line"></div>
         <p dir="rtl" align="right" class="set-font f-14 color-b-900">
-            {{data.body}}
+            {{ data.body }}
         </p>
         <div class="line"></div>
         <div class="group-key-words" style="overflow: auto">
-            <span class="fl-right set-font f-11">{{data.key_word}}</span>
+            <span class="fl-right set-font f-11">{{ data.key_word }}</span>
         </div>
     </div>
     <div class="show-item-one-style-1">
@@ -66,47 +67,52 @@
                     </div>
                 </div>
                 <div class="response">
-                    <div class="post-group">
-                        <div class="post" v-for="i in comments">
+                    <div v-for="i in comments" class="post-group">
+                        <div class="post" style="overflow: auto">
                             <div class="post__avatar"></div>
                             <h3 class="post__author">
-                                {{i.name}} {{i.sur_name}}
+                                {{ i.name }} {{ i.sur_name }}
                             </h3>
                             <h4 class="post__timestamp">
-                                {{i.created_at}}
+                                {{ i.created_at }}
                             </h4>
                             <p class="post__body">
-                                {{i.body}}
+                                {{ i.body }}
                             </p>
                             <div class="post__actions">
-                                <div class="button button--approve">
+                                <div class="button button--approve obj-center">
                                     <i class="fa fa-thumbs-o-up"></i><i class="fa fa-thumbs-up solid"></i>
                                 </div>
-                                <div class="button button--deny">
+                                <div class="button button--deny obj-center">
                                     <i class="fa fa-thumbs-o-down"></i><i class="fa fa-thumbs-down solid"></i>
                                 </div>
                                 <div class="button button--fill comment-trigger">
                                     <span>Comment...</span>
                                 </div>
-                                <div class="button button--flag">
-                                    <i class="fa fa-comment-o"></i><i class="fa fa-comment solid"></i>2
+                                <div @click="setIdComment(i.id)" class="button button--flag obj-center">
+                                    <i class="fa fa-comment-o"></i><i class="fa fa-comment solid"></i>
+                                </div>
+                                <div
+                                    :class="'w-100' + ' ' +'group-reply-comment'+id_comment + ' '+'group-reply-comment'">
+                                    <slot name="form_new_reply_comment" :id_comment="id_comment"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="post reply-comment">
-                            <div class="post__avatar"></div>
-                            <h3 class="post__author">
-                                Lester McTester
-                            </h3>
-                            <h4 class="post__timestamp">
-                                Oct 13 at 8:51pm
-                            </h4>
-                            <p class="post__body">
-                                Hamilton county river front museum center washington park breweries walnut hills findlay
-                                market christian moerlein flying pig ohio valley jazz festival union terminal fifty west
-                                coffee emporium chili.
-                            </p>
-                            <br>
+                        <div v-for="a in reply">
+                            <div v-if="a.comment_id == i.id" class="post reply-comment">
+                                <div class="post__avatar"></div>
+                                <h3 class="post__author">
+                                    {{ a.name }}
+                                </h3>
+                                <h4 class="post__timestamp">
+                                    {{ a.created_at }}
+                                </h4>
+                                <p class="post__body">
+                                    {{ a.body }}
+                                </p>
+                                <p>{{}}</p>
+                                <br>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,8 +126,17 @@ export default {
     name: "show_style_1",
     props: [
         'data',
-        'comments'
-    ]
+        'comments',
+        'reply',
+    ],
+    data: () => ({
+        id_comment: 0,
+    }),
+    methods: {
+        setIdComment(id) {
+            this.id_comment = id
+        }
+    }
 }
 </script>
 

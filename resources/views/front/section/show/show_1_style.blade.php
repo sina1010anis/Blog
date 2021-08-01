@@ -1,7 +1,7 @@
 @extends('front.index')
 
 @section('index_page')
-    <show_style_1 :comments="{{$comments}}" :data="{{$nameItem}}">
+    <show_style_1 :comments="{{$comments}}" :data="{{$nameItem}}" :reply="{{$replyComments}}">
         <template #form_new_comment>
             @if(session('msg'))
                 <p>{{session('msg')}}</p>
@@ -45,6 +45,35 @@
                     <label for="comment" data-help="Escribe algo! Lo primero que se te ocurra">Comment</label>
                     @error('comment')
                         <p class="set-font color-b-800">{{$message}}</p>
+                    @enderror
+                </div>
+                <div class="form-submit">
+                    <input name="submit" type="submit" id="submit" class="submit set-font" value="ثبت">
+                </div>
+            </form>
+        </template>
+        <template v-slot:form_new_reply_comment="slotProps">
+            <form method="post" :action="'/Iran-Blog/{{$name_domain->domain}}/reply/comment/'+slotProps.id_comment" id="commentform" class="comment-form">
+                @csrf
+                <div class="comment-form-name">
+                    <input value="{{old('name')}}" @error('name') class="border-danger" @enderror id="name" placeholder="Name *" name="name" type="text">
+                    <label for="name" data-help="¿Are you 11 from Stranger Things?">Name</label>
+                    @error('name')
+                    <p class="set-font color-b-800">{{$message}}</p>
+                    @enderror
+                </div>
+                <div class="comment-form-email">
+                    <input value="{{old('email')}}" id="email" @error('email') class="border-danger" @enderror placeholder="Email *" name="email" type="text" >
+                    <label for="email">Email</label>
+                    @error('email')
+                    <p class="set-font color-b-800">{{$message}}</p>
+                    @enderror
+                </div>
+                <div class="comment-form-comment">
+                    <textarea @error('comment') class="border-danger" @enderror textarea="" placeholder="Comment *" id="comment" name="comment">{{old('comment')}}</textarea>
+                    <label for="comment" data-help="Escribe algo! Lo primero que se te ocurra">Comment</label>
+                    @error('comment')
+                    <p class="set-font color-b-800">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="form-submit">

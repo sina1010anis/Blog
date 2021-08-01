@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <script src="https://kit.fontawesome.com/d4c29863c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="shit">
