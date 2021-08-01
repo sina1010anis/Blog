@@ -67,18 +67,16 @@
                 </div>
                 <div class="response">
                     <div class="post-group">
-                        <div class="post">
+                        <div class="post" v-for="i in comments">
                             <div class="post__avatar"></div>
                             <h3 class="post__author">
-                                Lester McTester
+                                {{i.name}} {{i.sur_name}}
                             </h3>
                             <h4 class="post__timestamp">
-                                Oct 13 at 8:51pm
+                                {{i.created_at}}
                             </h4>
                             <p class="post__body">
-                                Hamilton county river front museum center washington park breweries walnut hills findlay
-                                market christian moerlein flying pig ohio valley jazz festival union terminal fifty west
-                                coffee emporium chili.
+                                {{i.body}}
                             </p>
                             <div class="post__actions">
                                 <div class="button button--approve">
@@ -93,51 +91,22 @@
                                 <div class="button button--flag">
                                     <i class="fa fa-comment-o"></i><i class="fa fa-comment solid"></i>2
                                 </div>
-                                <div class="post__comments">
-                                    <div class="comment-group">
-                                        <div class="post">
-                                            <div class="post__avatar comment__avatar"></div>
-                                            <h3 class="post__author">
-                                                Lester McTester
-                                            </h3>
-                                            <h4 class="post__timestamp">
-                                                Oct 13 at 8:51pm
-                                            </h4>
-                                            <p class="post__body">
-                                                Hamilton county river front museum center washington park breweries
-                                                walnut hills findlay market christian moerlein flying pig ohio valley
-                                                jazz festival union terminal fifty west coffee emporium chili.
-                                            </p>
-                                        </div>
-                                        <div class="post">
-                                            <div class="post__avatar comment__avatar"></div>
-                                            <h3 class="post__author">
-                                                Lester McTester
-                                            </h3>
-                                            <h4 class="post__timestamp">
-                                                Oct 13 at 8:51pm
-                                            </h4>
-                                            <p class="post__body">
-                                                Hamilton county river front museum center washington park breweries
-                                                walnut hills findlay market christian moerlein flying pig ohio valley
-                                                jazz festival union terminal fifty west coffee emporium chili.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment-form">
-                                        <div class="comment-form__avatar"></div>
-                                        <textarea></textarea>
-                                        <div class="comment-form__actions">
-                                            <div class="button button--light cancel">
-                                                Cancel
-                                            </div>
-                                            <div class="button button--confirm">
-                                                Comment
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <div class="post reply-comment">
+                            <div class="post__avatar"></div>
+                            <h3 class="post__author">
+                                Lester McTester
+                            </h3>
+                            <h4 class="post__timestamp">
+                                Oct 13 at 8:51pm
+                            </h4>
+                            <p class="post__body">
+                                Hamilton county river front museum center washington park breweries walnut hills findlay
+                                market christian moerlein flying pig ohio valley jazz festival union terminal fifty west
+                                coffee emporium chili.
+                            </p>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -150,7 +119,8 @@
 export default {
     name: "show_style_1",
     props: [
-        'data'
+        'data',
+        'comments'
     ]
 }
 </script>

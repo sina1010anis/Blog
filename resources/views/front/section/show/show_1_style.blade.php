@@ -1,7 +1,7 @@
 @extends('front.index')
 
 @section('index_page')
-    <show_style_1 :data="{{$nameItem}}">
+    <show_style_1 :comments="{{$comments}}" :data="{{$nameItem}}">
         <template #form_new_comment>
             @if(session('msg'))
                 <p>{{session('msg')}}</p>

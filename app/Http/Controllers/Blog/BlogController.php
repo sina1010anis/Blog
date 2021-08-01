@@ -19,6 +19,7 @@ class BlogController extends Controller
     public function show($dom,NewBlog $nameItem)
     {
         $name_domain = Blog::whereDomain($dom)->first();
-        return view('front.section.show.show_'.$name_domain->style.'_style' , compact( 'name_domain' , 'nameItem'));
+        $comments = Comment::where('new_item' , $nameItem->id)->latest('id')->get();
+        return view('front.section.show.show_'.$name_domain->style.'_style' , compact( 'name_domain' ,'comments', 'nameItem'));
     }
 }

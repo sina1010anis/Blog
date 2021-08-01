@@ -818,6 +818,10 @@ ul {
     color: white;
     border-radius: 100px;
 }
+.reply-comment{
+    background-color: #ddecdd !important;
+    width: 90%!important;
+}
 @media all and (max-width: 500px) {
     .view-header-style-1{
         font-size: 11px!important;
