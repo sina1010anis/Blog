@@ -6,16 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NewCommentValidate;
 use App\Http\Requests\ReplyComment;
 use App\Models\Comment;
+use App\Repository\DB\Comment\LikeComment;
 use App\Repository\DB\Comment\NewComment;
 use App\Repository\DB\Comment\NewCommentReply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class CommentController extends Controller
 {
     private $newComment;
-    /**
-     * @var NewCommentReply
-     */
     private $newCommentReply;
 
     public function __construct(NewComment $newComment , NewCommentReply $newCommentReply)
@@ -32,5 +31,11 @@ class CommentController extends Controller
     public function reply_comment($dom,$id,ReplyComment $request, \App\Models\ReplyComment $comment)
     {
         return $this->newCommentReply->setData($id , $request)->saveData()->back('پیام شما اضافه شده بعد از تایید مدیر وبلاگ منتشر میشود');
+    }
+    public function like_comment($id)
+    {
+        $like = new LikeComment($id);
+        $like->check();
+        return $like->increment();
     }
 }

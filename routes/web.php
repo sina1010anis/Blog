@@ -22,5 +22,6 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
     Route::post('/new/comment/{id}' , [CommentController::class,'new_comment'])->name('.new_comment');
     Route::post('/reply/comment/{id}' , [CommentController::class,'reply_comment'])->name('.reply_comment');
 });
+Route::post('/like/comment/{id}' , [CommentController::class,'like_comment'])->name('like_comment');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

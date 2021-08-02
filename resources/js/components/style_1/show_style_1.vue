@@ -80,11 +80,11 @@
                                 {{ i.body }}
                             </p>
                             <div class="post__actions">
-                                <div class="button button--approve obj-center">
+                                <div @click="likeComment(i.id)" class="button button--approve obj-center">
                                     <i class="fa fa-thumbs-o-up"></i><i class="fa fa-thumbs-up solid"></i>
                                 </div>
-                                <div class="button button--deny obj-center">
-                                    <i class="fa fa-thumbs-o-down"></i><i class="fa fa-thumbs-down solid"></i>
+                                <div :class="'button button--deny obj-center view-number-like'+i.id">
+                                    {{i.like}}
                                 </div>
                                 <div class="button button--fill comment-trigger">
                                     <span>Comment...</span>
@@ -122,6 +122,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "show_style_1",
     props: [
@@ -135,6 +137,16 @@ export default {
     methods: {
         setIdComment(id) {
             this.id_comment = id
+        },
+        likeComment(id){
+            axios.post('/like/comment/'+id , {id:id}).then((res) => {
+                if (res.data == 'ERR'){
+                    alert('شما یک بار به این کامت رای مثبت داده اید');
+                }else{
+                    const number = $('.view-number-like'+id).text();
+                    $('.view-number-like'+id).html(parseInt(res.data) + parseInt(number));
+                }
+            })
         }
     }
 }
