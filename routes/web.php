@@ -18,7 +18,7 @@ use \App\Http\Controllers\Comment\CommentController;
 Route::get('/', [IndexController::class , 'index'])->name('index_page');
 Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+).([a-z A-Z]+)'])->group(function (){
     Route::get('/' , [BlogController::class,'index'])->name('.test');
-    Route::get('/{nameItem}' , [BlogController::class,'show'])->name('.show');
+    Route::get('/{Item}' , [BlogController::class,'show'])->name('.show');
     Route::post('/new/comment/{id}' , [CommentController::class,'new_comment'])->name('.new_comment');
     Route::post('/reply/comment/{id}' , [CommentController::class,'reply_comment'])->name('.reply_comment');
 });
