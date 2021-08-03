@@ -21,7 +21,9 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
     Route::get('/{Item}' , [BlogController::class,'show'])->name('.show');
     Route::post('/new/comment/{id}' , [CommentController::class,'new_comment'])->name('.new_comment');
     Route::post('/reply/comment/{id}' , [CommentController::class,'reply_comment'])->name('.reply_comment');
+    Route::get('/menu/{name}' , [BlogController::class,'menu_select'])->name('menu_select');
 });
 Route::post('/like/comment/{id}' , [CommentController::class,'like_comment'])->name('like_comment');
+Route::post('/search/item/' , [BlogController::class,'search_item'])->name('search_item');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

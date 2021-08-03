@@ -95,7 +95,7 @@
 }
 .item-menu-style-1:hover{
     background-color:#2ab062 ;
-    color: #ffffff;
+    color: #ffffff!important;
 }
 .view-item-and-slid{
     width: 100%;

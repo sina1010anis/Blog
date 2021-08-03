@@ -11,8 +11,8 @@ class NewBlog extends Model
 
     protected $guarded =[];
 
-    public function user(){
-        return $this->belongsTo(User::class , 'user_id' , 'id');
+    public function blog(){
+        return $this->belongsTo(Blog::class , 'blog_id' , 'id');
     }
 
     public function new_item(){
@@ -22,5 +22,10 @@ class NewBlog extends Model
     public function getRouteKeyName()
     {
         return 'title';
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo(MenuItem::class , 'menu_id' , 'id');
     }
 }

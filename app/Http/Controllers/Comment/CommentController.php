@@ -26,7 +26,6 @@ class CommentController extends Controller
     public function new_comment(NewCommentValidate $request , Comment $comment , $dom , $id)
     {
         return $this->newComment->setData($id , $request)->saveData()->back('پیام شما اضافه شده بعد از تایید مدیر وبلاگ منتشر میشود');
-        //return back()->with('msg' , 'اضافه شد');
     }
     public function reply_comment($dom,$id,ReplyComment $request, \App\Models\ReplyComment $comment)
     {
