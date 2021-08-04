@@ -9,7 +9,9 @@
     <div class="menu-view-style-1 w-100">
         <ul>
             <li v-for="i in menu" class="item-menu-style-1"><a class="set-font f-13"
-                                                               :href="'/Iran-Blog/'+name_domain.domain+'/menu/'+i.name">{{ i.name }}</a>
+                                                               :href="'/Iran-Blog/'+name_domain.domain+'/menu/'+i.name">{{
+                    i.name
+                }}</a>
             </li>
         </ul>
     </div>
@@ -34,6 +36,7 @@
                        class="input-back set-font f-10 search_to_news" align="right" dir="rtl" name="search_to_news"
                        placeholder="جستوجو در خبر ها">
             </span>
+                    <slot name="item_category"/>
         </span>
     </div>
 </template>
@@ -53,6 +56,7 @@ export default {
         'data',
         'domain',
         'menu',
+        'category',
     ],
     methods: {
         search_to_news(id) {

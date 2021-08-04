@@ -4,7 +4,25 @@
     @if($data->count() <=0)
         <p>مقداری یافت نشد</p>
     @else
-        <style_1 :menu="{{$menu}}" :data="{{$data}}" :name_domain="{{$name_domain}}" date="{{jdate()}}">
+        <style_1
+            :menu="{{$menu}}"
+            :data="{{$data}}"
+            :name_domain="{{$name_domain}}"
+            date="{{jdate()}}"
+        >
+            <template #item_category>
+                @foreach($categorys as $category)
+                    <span class="fl-right slid-style-1">
+                        <h2 dir="rtl" align="right" class="set-font color-b-800 f-15">{{$category->title}}</h2>
+                        <span class="line fl-right"></span>
+                        <span class="fl-right w-100 group-item-view">
+                            @foreach($category->category_item as $item_category)
+                                {!! $item_category->item !!}
+                            @endforeach
+                        </span>
+                    </span>
+                @endforeach
+            </template>
             <template v-slot:dec_min="slotProps">
                 <p>
                     @{{slotProps.text_item}}

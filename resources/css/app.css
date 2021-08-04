@@ -31,7 +31,7 @@
 }
 .btn-new-blog{
     padding: 10px 20px;
-    width: 50%;
+    width: 75%;
     margin: 20px auto;
     border-radius: 100px;
     color: white;
@@ -824,6 +824,9 @@ ul {
 }
 .group-reply-comment{
     /*display: none!important;*/
+}
+.group-item-view *{
+    width: 100%;
 }
 @media all and (max-width: 500px) {
     .view-header-style-1{

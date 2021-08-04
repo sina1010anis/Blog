@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\CategoryItem;
 use App\Models\Comment;
 use App\Models\MenuItem;
 use App\Models\NewBlog;
@@ -15,12 +17,14 @@ class BlogController extends Controller
 {
     public function index($dom){
         $name_domain = response()->domain($dom);
+        $categorys = Category::whereBlog_id($name_domain->id)->get();
+        $item_category = CategoryItem::all();
         if ($name_domain == ''){
             abort(404);
         }else{
             $data=NewBlog::whereBlog_id($name_domain->id)->get();
             $menu = MenuItem::whereBlog_id($name_domain->id)->latest('id')->get();
-            return view('front.section.style.page_'.$name_domain->style.'_style' , compact( 'menu','name_domain' , 'data'));
+            return view('front.section.style.page_'.$name_domain->style.'_style' , compact( 'item_category','menu','name_domain' , 'data','categorys'));
         }
     }
     public function show($dom,$Item)
