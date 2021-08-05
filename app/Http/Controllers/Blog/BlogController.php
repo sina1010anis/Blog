@@ -17,14 +17,14 @@ class BlogController extends Controller
 {
     public function index($dom){
         $name_domain = response()->domain($dom);
-        $categorys = Category::whereBlog_id($name_domain->id)->get();
-        $item_category = CategoryItem::all();
         if ($name_domain == ''){
             abort(404);
         }else{
+            $all_category = Category::whereBlog_id($name_domain->id)->get();
+            $item_category = CategoryItem::all();
             $data=NewBlog::whereBlog_id($name_domain->id)->get();
             $menu = MenuItem::whereBlog_id($name_domain->id)->latest('id')->get();
-            return view('front.section.style.page_'.$name_domain->style.'_style' , compact( 'item_category','menu','name_domain' , 'data','categorys'));
+            return view('front.section.style.page_'.$name_domain->style.'_style' , compact('all_category', 'item_category','menu','name_domain' , 'data'));
         }
     }
     public function show($dom,$Item)
@@ -39,9 +39,10 @@ class BlogController extends Controller
     public function menu_select($dom ,MenuItem $name)
     {
         $name_domain = response()->domain($dom);
+        $all_category = Category::whereBlog_id($name_domain->id)->get();
         $data=NewBlog::whereBlog_id($name_domain->id)->whereMenu_id($name->id)->get();
         $menu = MenuItem::whereBlog_id($name_domain->id)->latest('id')->get();
-        return view('front.section.style.page_'.$name_domain->style.'_style' , compact( 'menu','name_domain' , 'data'));
+        return view('front.section.style.page_'.$name_domain->style.'_style' , compact( 'all_category','menu','name_domain' , 'data'));
     }
     public function search_item(Request $request)
     {

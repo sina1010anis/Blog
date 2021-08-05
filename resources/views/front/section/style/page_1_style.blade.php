@@ -11,7 +11,7 @@
             date="{{jdate()}}"
         >
             <template #item_category>
-                @foreach($categorys as $category)
+                @foreach($all_category as $category)
                     <span class="fl-right slid-style-1">
                         <h2 dir="rtl" align="right" class="set-font color-b-800 f-15">{{$category->title}}</h2>
                         <span class="line fl-right"></span>

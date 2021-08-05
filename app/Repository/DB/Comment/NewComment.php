@@ -4,6 +4,7 @@
 namespace App\Repository\DB\Comment;
 
 
+use App\Events\SetMessage;
 use App\Models\Comment;
 use App\Repository\DB\Comment\InterfaceFile\NewCommentInterface;
 use App\Repository\DB\Comment\InterfaceFile\setModelComment;
@@ -17,6 +18,12 @@ class NewComment extends BackReturn implements NewCommentInterface
     public function __construct()
     {
         $this->comment = new Comment();
+    }
+
+    public function setEmail(Request $request)
+    {
+        event(new SetMessage($request));
+        return $this;
     }
     public function setData($id , Request $request)
     {

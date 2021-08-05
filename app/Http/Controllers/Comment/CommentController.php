@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Comment;
 
+use App\Events\SetMessage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewCommentValidate;
 use App\Http\Requests\ReplyComment;
@@ -25,7 +26,7 @@ class CommentController extends Controller
 
     public function new_comment(NewCommentValidate $request , Comment $comment , $dom , $id)
     {
-        return $this->newComment->setData($id , $request)->saveData()->back('پیام شما اضافه شده بعد از تایید مدیر وبلاگ منتشر میشود');
+        return $this->newComment->setEmail($request)->setData($id , $request)->saveData()->back('پیام شما اضافه شده بعد از تایید مدیر وبلاگ منتشر میشود');
     }
     public function reply_comment($dom,$id,ReplyComment $request, \App\Models\ReplyComment $comment)
     {
