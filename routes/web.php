@@ -25,5 +25,10 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
 });
 Route::post('/like/comment/{id}' , [CommentController::class,'like_comment'])->name('like_comment');
 Route::post('/search/item/' , [BlogController::class,'search_item'])->name('search_item');
+Route::get('/google-login', [\App\Http\Controllers\User\UserController::class , 'redirectToProvider'])->name('send.google');
+Route::get('/callback', [\App\Http\Controllers\User\UserController::class , 'handleProviderCallback'])->name('back.google');
+Route::get('/logout',function(){
+     auth()->logout();
+});
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

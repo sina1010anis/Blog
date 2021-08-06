@@ -231,18 +231,6 @@ h1 {
     font-size: 16px;
     font-size: 1rem;
 }
-
-input[type="text"], input[type="email"], input[type="url"], textarea {
-    background-color: #fff;
-    padding: 24px 10px 12px;
-    font-size: 16px;
-    font-size: 1rem;
-    width: 100%;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
 :focus {
     outline: 0;
 }
@@ -827,6 +815,33 @@ ul {
 }
 .group-item-view *{
     width: 100%;
+}
+.group-item-login
+{
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+    background-color: #ffffff;
+}
+.input-login
+{
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: 1px solid #6ac2ef;
+}
+.group-input-login li{
+    margin-right:20px ;
+    color: red;
+    text-align: right;
+    direction: rtl;
+    list-style: circle!important;
 }
 @media all and (max-width: 500px) {
     .view-header-style-1{
