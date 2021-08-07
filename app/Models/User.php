@@ -40,6 +40,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $attributes = ['google_id' => 'null'];
 
     public function banner(){
         return $this->hasMany(Banner::class , 'user_id' , 'id');

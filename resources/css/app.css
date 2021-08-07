@@ -843,6 +843,9 @@ ul {
     direction: rtl;
     list-style: circle!important;
 }
+.view-btn{
+
+}
 @media all and (max-width: 500px) {
     .view-header-style-1{
         font-size: 11px!important;

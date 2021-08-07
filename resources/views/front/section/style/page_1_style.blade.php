@@ -10,6 +10,12 @@
             :name_domain="{{$name_domain}}"
             date="{{jdate()}}"
         >
+            <template v-slot:view-btn="slotProps">
+                @auth()
+                    <li v-if="'{{auth()->user()->id}}' == slotProps.user_id" class="item-menu-style-1"><a class="set-font f-13">پنل مدریت</a>
+                @endauth
+                </li>
+            </template>
             <template #item_category>
                 @foreach($all_category as $category)
                     <span class="fl-right slid-style-1">
