@@ -5,10 +5,10 @@
             <h4 class="set-font color-b-500" align="center">Domain : {{$name_domain->domain}}</h4>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Blog</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.index' , ['dom' => $name_domain->domain])}}">Setup Blog</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Menus</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.menu' , ['dom' => $name_domain->domain])}}">Setup Menus</a>
         </li>
         <li class="panel panel-heading">
             <a class="set-font color-b-400 f-11" href="#/">Setup Items</a>

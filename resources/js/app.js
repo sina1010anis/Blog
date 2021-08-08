@@ -18,6 +18,24 @@ const app = createApp({
         panel_admin : panel,
         style_2
     },
+    methods:{
+        delete_item_menu(id , dom){
+            axios.post('/Iran-Blog/'+dom+'/admin/delete/menu' , {
+                id:id
+            }).then((res)=>{
+                if (res.data == 'ok')
+                {
+                    $('.view_msg_all').text('Successful removal').animate({'opacity':'1'})
+                }else{
+                    $('.view_msg_all_error').text('Failed to delete').animate({'opacity':'1'});
+                }
+                setTimeout(()=>{
+                    $('.view_msg_all').animate({'opacity':'0'})
+                    $('.view_msg_all_error').animate({'opacity':'0'})
+                },2000)
+            })
+        }
+    },
     mounted(){
         setTimeout(()=>{
             $('.view_msg_all').animate({'opacity':'0'})

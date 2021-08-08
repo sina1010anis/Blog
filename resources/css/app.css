@@ -915,9 +915,12 @@ ul {
 .view-item-panel-admin{
     width: 100%;
     padding: 10px;
-    box-sizing:border-box ;
+    box-sizing:content-box;
     border: 1px solid rgba(193, 193, 193, 0.5);
     border-radius: 10px;
+}
+.view-item-panel-admin:hover{
+    background-color: #ff8787;
 }
 .form-edit-blog .input-login{
     max-width: 100%!important;
@@ -933,6 +936,20 @@ ul {
     bottom: 20px;
     right: 20px;
     max-width: 400px;
+}
+.view_msg_all_error{
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #ff6464!important;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
+}
+.select-item-panel-admin{
+    background-color: #a9a9a9!important;
 }
 @media all and (max-width: 500px) {
     .view-header-style-1{

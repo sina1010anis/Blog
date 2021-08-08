@@ -29,6 +29,9 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
 
 Route::prefix('/Iran-Blog/{dom}/admin')->middleware(['auth' , 'CheckRoule'])->as('admin')->group(function (){
     Route::get('/index' , [AdminController::class,'index'])->name('.index');
+    Route::get('/menus' , [AdminController::class,'setupMenu'])->name('.menu');
+    Route::post('/delete/menu' , [AdminController::class,'deleteMenu'])->name('.delete.menu');
+    Route::post('/new/menu' , [AdminController::class,'newMenu'])->name('.new.menu');
     Route::post('/edit/blog' , [AdminController::class,'edit_blog'])->name('.edit_blog');
 });
 
