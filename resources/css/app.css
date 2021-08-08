@@ -843,8 +843,96 @@ ul {
     direction: rtl;
     list-style: circle!important;
 }
-.view-btn{
+#sidebar-menu {
+    background-color: #333333 !important;
+    width: 20%;
+    height: 100% !important; /* Full height */
+    position: fixed !important;
+    overflow: hidden !important; /* Enable scrolling if the sidenav has too much content */
+}
+.panel-heading{
+    overflow: hidden;
+}
+#sidebar-menu .panel, #admin-apps > li, #admin-users > li{
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-color: #333333 !important;
+    background: #333333 !important;
+}
 
+#nav>li.panel.panel-heading:hover, #nav>li.panel.panel-heading:active, #sidebar-menu>ul>li>a:hover, #sidebar-menu>ul>li>a:hover:active, #users-sub >li:hover, #users-sub >li:hover:active, #apps-sub >li:hover, #apps-sub >li:active{
+    background: #5C5C5C !important;
+
+}
+
+#sidebar-menu a {
+    color: #B7B7B7 !important;
+}
+
+#sidebar-menu .nav:not(:first-child)>li>a {
+    padding: 5px 5px !important;
+}
+
+#sidebar-menu .nav>li>a {
+    padding: 30px 30px !important;
+}
+
+#sidebar-menu #nav>.panel, #nav>.panel-collapse, #panel-users > li{
+    border-bottom: 1px solid #3E3E3E !important;
+    border-top: 0px solid #333333!important;
+}
+
+#sidebar-menu a.selected{
+    font-weight: bold !important;
+    background-color: #333333 !important;
+
+}
+
+#nav > li > a > span{
+    color: #B7B7B7 !important;
+}
+
+#users-sub > li, #apps-sub > li{
+    margin-left: -50px !important;
+    padding-left: 50px !important;
+}
+.group-view-all-panel{
+    width: 100%;
+}
+.view-setup{
+    width: 80%;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #fdfdfd;
+}
+.view-setup-admin-panel{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.view-item-panel-admin{
+    width: 100%;
+    padding: 10px;
+    box-sizing:border-box ;
+    border: 1px solid rgba(193, 193, 193, 0.5);
+    border-radius: 10px;
+}
+.form-edit-blog .input-login{
+    max-width: 100%!important;
+    text-align: center!important;
+}
+.view_msg_all{
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #25864e;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
 }
 @media all and (max-width: 500px) {
     .view-header-style-1{

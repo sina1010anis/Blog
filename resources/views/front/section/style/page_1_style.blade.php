@@ -12,7 +12,7 @@
         >
             <template v-slot:view-btn="slotProps">
                 @auth()
-                    <li v-if="'{{auth()->user()->id}}' == slotProps.user_id" class="item-menu-style-1"><a class="set-font f-13">پنل مدریت</a>
+                    <li v-if="'{{auth()->user()->id}}' == slotProps.user_id" class="item-menu-style-1"><a href="{{route('admin.index' , ['dom' =>$name_domain->domain])}}" class="set-font f-13">پنل مدریت</a>
                 @endauth
                 </li>
             </template>

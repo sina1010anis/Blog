@@ -13,7 +13,7 @@
                     i.name
                 }}</a>
             </li>
-            <slot name="view-btn" :user_id="name_domain.user_id"/>
+            <slot name="view-btn" :user_id="name_domain.user_id" :domain="name_domain.domain"/>
         </ul>
     </div>
     <div class="view-item-and-slid">
