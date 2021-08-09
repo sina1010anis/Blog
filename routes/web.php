@@ -30,8 +30,13 @@ Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+)
 Route::prefix('/Iran-Blog/{dom}/admin')->middleware(['auth' , 'CheckRoule'])->as('admin')->group(function (){
     Route::get('/index' , [AdminController::class,'index'])->name('.index');
     Route::get('/menus' , [AdminController::class,'setupMenu'])->name('.menu');
+    Route::get('/category' , [AdminController::class,'setupCategory'])->name('.category');
+    Route::get('/itemCategory' , [AdminController::class,'setupItemCategory'])->name('.itemCategory');
     Route::post('/delete/menu' , [AdminController::class,'deleteMenu'])->name('.delete.menu');
+    Route::post('/delete/category' , [AdminController::class,'deleteCategory'])->name('.delete.category');
     Route::post('/new/menu' , [AdminController::class,'newMenu'])->name('.new.menu');
+    Route::post('/new/itemCategory' , [AdminController::class,'newItemCategory'])->name('.new.itemCategory');
+    Route::post('/new/category' , [AdminController::class,'newCategory'])->name('.new.category');
     Route::post('/edit/blog' , [AdminController::class,'edit_blog'])->name('.edit_blog');
 });
 

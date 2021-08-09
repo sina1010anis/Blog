@@ -14,10 +14,10 @@
             <a class="set-font color-b-400 f-11" href="#/">Setup Items</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Category</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.category' , ['dom' => $name_domain->domain])}}">Setup Category</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Item Category</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.itemCategory' , ['dom' => $name_domain->domain])}}">Setup Item Category</a>
         </li>
         <li class="panel panel-heading">
             <a class="set-font color-b-400 f-11" href="#/">Setup Comments</a>

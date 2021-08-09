@@ -16,4 +16,6 @@ class Category extends Model
     public function category_item(){
         return $this->hasMany(CategoryItem::class , 'category_id' , 'id');
     }
+
+    public $timestamps = false;
 }

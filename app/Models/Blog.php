@@ -17,6 +17,11 @@ class Blog extends Model
     public function menu(){
         return $this->hasMany(MenuItem::class , 'blog_id' , 'id');
     }
+
+    public function category(){
+        return $this->hasMany(Category::class , 'blog_id' , 'id');
+    }
+
     public function getRouteKeyName()
     {
         return 'domain';
