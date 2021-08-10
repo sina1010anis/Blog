@@ -11,7 +11,7 @@
             <a class="set-font color-b-400 f-11" href="{{route('admin.menu' , ['dom' => $name_domain->domain])}}">Setup Menus</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Items</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.setupItem' , ['dom' => $name_domain->domain])}}">Setup Items</a>
         </li>
         <li class="panel panel-heading">
             <a class="set-font color-b-400 f-11" href="{{route('admin.category' , ['dom' => $name_domain->domain])}}">Setup Category</a>
@@ -20,13 +20,10 @@
             <a class="set-font color-b-400 f-11" href="{{route('admin.itemCategory' , ['dom' => $name_domain->domain])}}">Setup Item Category</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Comments</a>
+            <a class="set-font color-b-400 f-11" href="{{route('admin.comment' , ['dom' => $name_domain->domain])}}">Setup Comments</a>
         </li>
         <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Setup Banner</a>
-        </li>
-        <li class="panel panel-heading">
-            <a class="set-font color-b-400 f-11" href="#/">Exit</a>
+            <a class="set-font color-b-400 f-11" href="{{route('logoutUser')}}">Exit</a>
         </li>
     </ul>
 </div>

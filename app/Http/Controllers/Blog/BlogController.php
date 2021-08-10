@@ -31,7 +31,7 @@ class BlogController extends Controller
     {
         $name_domain = response()->domain($dom);
         $nameItem = NewBlog::where(['blog_id' => $name_domain->id , 'title' => $Item])->first();
-        $comments = Comment::where('new_item' , $nameItem->id)->latest('id')->get();
+        $comments = Comment::where(['new_item' => $nameItem->id , 'status' => 1])->latest('id')->get();
         $replyComments = ReplyComment::latest()->get();
         return view('front.section.show.show_'.$name_domain->style.'_style' , compact( 'name_domain' ,'comments', 'nameItem','replyComments'));
     }

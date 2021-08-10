@@ -22,6 +22,10 @@ class Blog extends Model
         return $this->hasMany(Category::class , 'blog_id' , 'id');
     }
 
+    public function item(){
+        return $this->hasMany(NewBlog::class , 'blog_id' , 'id');
+    }
+
     public function getRouteKeyName()
     {
         return 'domain';

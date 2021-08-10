@@ -31,13 +31,21 @@ Route::prefix('/Iran-Blog/{dom}/admin')->middleware(['auth' , 'CheckRoule'])->as
     Route::get('/index' , [AdminController::class,'index'])->name('.index');
     Route::get('/menus' , [AdminController::class,'setupMenu'])->name('.menu');
     Route::get('/category' , [AdminController::class,'setupCategory'])->name('.category');
+    Route::get('/comments' , [AdminController::class,'setupComments'])->name('.comment');
     Route::get('/itemCategory' , [AdminController::class,'setupItemCategory'])->name('.itemCategory');
+    Route::get('/banner' , [AdminController::class,'setupBanner'])->name('.setupBanner');
+    Route::get('/item' , [AdminController::class,'setupItem'])->name('.setupItem');
     Route::post('/delete/menu' , [AdminController::class,'deleteMenu'])->name('.delete.menu');
+    Route::get('/delete/item/{id}' , [AdminController::class,'deleteItem'])->name('.delete.item');
     Route::post('/delete/category' , [AdminController::class,'deleteCategory'])->name('.delete.category');
+    Route::get('/delete/comment/{id}' , [AdminController::class,'deleteComment'])->name('.delete.comment');
+    Route::get('/delete/replyComment/{id}' , [AdminController::class,'deleteReplyComment'])->name('.delete.replyComment');
     Route::post('/new/menu' , [AdminController::class,'newMenu'])->name('.new.menu');
     Route::post('/new/itemCategory' , [AdminController::class,'newItemCategory'])->name('.new.itemCategory');
     Route::post('/new/category' , [AdminController::class,'newCategory'])->name('.new.category');
+    Route::post('/new/reply/comment' , [AdminController::class,'newReplyComment'])->name('.new.reply.comment');
     Route::post('/edit/blog' , [AdminController::class,'edit_blog'])->name('.edit_blog');
+    Route::get('/edit/statusComment/{id}' , [AdminController::class,'edit_status_comment'])->name('.edit_status_comment');
 });
 
 Route::post('/like/comment/{id}' , [CommentController::class,'like_comment'])->middleware('auth')->name('like_comment');
@@ -47,7 +55,7 @@ Route::get('/callback', [UserController::class , 'handleProviderCallback'])->nam
 
 Route::get('/logout',function(){
      auth()->logout();
-});
+})->name('logoutUser');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
