@@ -8,11 +8,11 @@ abstract class BackReturn
 {
     public function back($msg)
     {
-        return back()->with('msg' , $msg);
+        return back()->with('msg_ok' , $msg);
     }
 
     public function backTo ($msg , $route)
     {
-        return redirect($route)->with('msg' ,$msg);
+        return redirect($route)->with('msg_ok' ,$msg);
     }
 }
