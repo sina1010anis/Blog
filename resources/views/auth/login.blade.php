@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="group-input-login">
-                <input align="right" dir="rtl" type="password" value="{{old('password')}}" name="password" placeholder="رمز عبور..." class="f-12 set-font input-login">
+                <input align="right" dir="rtl" type="password" name="password" placeholder="رمز عبور..." class="f-12 set-font input-login">
                 <ul>
                     @error('password')
                         <li class="set-font f-12">{{$message}}</li>

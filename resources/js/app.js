@@ -23,6 +23,12 @@ const app = createApp({
         style_2
     },
     methods: {
+        cls_page_new_blog(){
+            $('.new-blog-view-form').fadeOut()
+        },
+        vie_form_new_blog(){
+            $('.new-blog-view-form').fadeIn()
+        },
         set_comment_reply_admin() {
             const dom = 'test.com';
             if (this.name_comment_reply != '' && this.text_comment_reply != '') {

@@ -18,6 +18,7 @@ use \App\Http\Controllers\Admin\AdminController;
 */
 
 Route::get('/', [IndexController::class , 'index'])->name('index_page');
+Route::post('/newBlog', [IndexController::class , 'newBlog'])->name('newBlog');
 
 Route::prefix('/Iran-Blog/{dom}')->as('blog')->where(['dom' => '([0-9 a-z A-Z]+).([a-z A-Z]+)'])->group(function (){
     Route::get('/' , [BlogController::class,'index'])->name('.test');
