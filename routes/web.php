@@ -44,6 +44,7 @@ Route::prefix('/Iran-Blog/{dom}/admin')->middleware(['auth' , 'CheckRoule'])->as
     Route::post('/new/itemCategory' , [AdminController::class,'newItemCategory'])->name('.new.itemCategory');
     Route::post('/new/category' , [AdminController::class,'newCategory'])->name('.new.category');
     Route::post('/new/reply/comment' , [AdminController::class,'newReplyComment'])->name('.new.reply.comment');
+    Route::post('/new/item/' , [AdminController::class,'newItem'])->name('.new.item');
     Route::post('/edit/blog' , [AdminController::class,'edit_blog'])->name('.edit_blog');
     Route::get('/edit/statusComment/{id}' , [AdminController::class,'edit_status_comment'])->name('.edit_status_comment');
 });

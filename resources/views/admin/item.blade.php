@@ -33,13 +33,24 @@
                 <h3 align="center" class="set-font color-b-600">New Item</h3>
                 <span class="line fl-left"></span>
                 <form class="form-edit-blog"
-                      action="{{route('admin.new.itemCategory' , ['dom' => $name_domain->domain])}}"
+                      action="{{route('admin.new.item' , ['dom' => $name_domain->domain])}}"
                       method="post">
                     @csrf
                                         <div class="group-input-login">
-                        <select align="center" dir="rtl" name="category_id" class="f-12 set-font input-login">
+                        <select align="center" dir="rtl" name="menu_id" class="f-12 set-font input-login">
+                            @foreach($menu as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
                         </select>
                     </div>
+                            <div class="group-input-login">
+            <input dir="rtl" value="{{old('title')}}" type="text" name="title" placeholder="Title..." class="f-12 set-font input-login">
+            <ul>
+                @error('title')
+                <li class="set-font f-12">{{$message}}</li>
+                @enderror
+            </ul>
+        </div>
                     <div class="group-input-login">
                         <textarea id="editor" name="body">
                             <p>Text...</p>
